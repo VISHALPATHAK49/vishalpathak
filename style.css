@@ -1,0 +1,820 @@
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+.section {
+  padding: 5rem 0;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+nav {
+  background: var(--clr-white);
+  box-shadow: var(--light-shadow);
+
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.nav-header h2{
+     font-family: 'Shadows Into Light', cursive;
+}
+.nav-header span{
+  color: var(--clr-primary-5);
+    
+}
+.nav-toggle {
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.nav-toggle:hover {
+  color: var(--clr-primary-1);
+  transform: rotate(90deg);
+}
+.logo {
+  height: 40px;
+}
+.links a {
+  color: var(--clr-grey-3);
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+.links a:hover {
+ text-decoration: underline 2px solid var(--clr-primary-5);
+  padding-left: 1.5rem;
+  transition: text-decoration 0.5s ease-in-out;
+}
+.social-icons {
+  display: none;
+}
+.links {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.show-links {
+  height: 10rem;
+}
+.upper-main{
+    width:100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+}
+.upper-main-text{
+    width: 60%;
+    height: 500px;
+    padding: 20px 40px;
+}
+.back-text{
+    color: rgb(214, 214, 214);
+    font-family: 'Shadows Into Light', cursive;
+    position: relative;
+    left: 60px;
+    width: max-content;
+    z-index: 1;
+    top: 80px;
+    transform: rotateZ(-15deg);
+}
+.main-text{
+    font-family: 'Shadows Into Light', cursive;
+    z-index: 5;
+    position: relative;
+    top: 40px;
+}
+.upper-main-text h2{
+    font-family: 'Shadows Into Light', cursive;
+  color: var(--clr-primary-5);
+  position: relative;
+  top: 30px;
+}
+.upper-main-text p{
+    font-family: 'Shadows Into Light', cursive;
+    color: #222;
+    width: 70%;
+    position: relative;
+    top: 40px;
+    font-size: 1.3rem;
+}
+.t1{
+    text-decoration: underline 2px solid var(--clr-primary-5); 
+}
+.hire-btn{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background:var(--clr-primary-5) ;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    font-family: 'Roboto';
+    top: 40px;
+}
+.hire-btn a{
+    text-decoration:none;
+    color: #fff;
+    font-size: 1rem;
+}
+.hire-btn a:hover{
+    color:var(--clr-primary-5);
+}
+.hire-btn:hover{
+    background: #fff;
+    border: 1px var(--clr-primary-5) solid;
+    color:var(--clr-primary-5);
+
+}
+.upper-main-img{
+    width: 40%;
+    height: 500px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upper-main-img img{
+    width: 90%;
+    height: auto;
+    position: relative;
+}
+.projects{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+}
+.project-head{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+.project-head h1{
+    font-family: 'Shadows Into Light', cursive;
+    text-decoration: 3px solid underline var(--clr-primary-5);
+}
+.project-main{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+}
+.project-div{
+    width: 33.33%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project{
+    width: 90%;
+    height: 400px;
+    background: rgba( 234, 218, 218, 0.45 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.project-img{
+    width:100%;
+    height:100px;
+    
+}
+.project-text{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    padding: 40px 0;
+    flex-direction: column;
+    text-align: center;
+}
+.project-text h3{
+    font-family: 'Shadows Into Light', cursive;
+    text-decoration: 3px solid underline var(--clr-primary-5);
+}
+.project-img img{
+    width:100%;
+    height: 100px;
+}
+.view-demo{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background:var(--clr-primary-5) ;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    font-family: 'Roboto';
+}
+.view-demo:hover{
+    transform: scale(1.2);
+}
+.skills{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.skill-head{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+.skill-head h1{
+  font-family: 'Shadows Into Light', cursive;
+  text-decoration: 3px solid underline var(--clr-primary-5);
+}
+.skill-main{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+}
+.skill1{
+  width: 25%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.skill11{
+  width: 180px;
+  height:80px;
+  background: rgba( 234, 218, 218, 0.45 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.skill11 p{
+  position: relative; 
+  top: -45px;
+  font-size: 1.5rem;
+  width: max-content;
+  left: 80px;
+  font-family: 'Shadows Into Light', cursive;
+  text-decoration: 3px solid underline var(--clr-primary-5);
+}
+.socials{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
+.socials-img{
+  width: 50%;
+  height: 400px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.socials-img img{
+  height: 100%;
+  width: auto;
+}
+.socials-text{
+  width: 50%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.socials-text h3{
+  font-family: 'Shadows Into Light', cursive;
+}
+.socials-text a{
+  width: max-content;
+  position: relative;
+  left: 40%;
+}
+.buy-me-cofee{
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.buy-me-cofee h3{
+  font-family: 'Shadows Into Light', cursive;
+}
+.buy-me-cofee a{
+  font-family: 'Shadows Into Light', cursive;
+  color: #222;
+  text-decoration: 2px underline solid  var(--clr-primary-5);
+}
+@media screen and (min-width: 800px) {
+  .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .nav-header {
+    padding: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .links {
+    height: auto;
+    display: flex;
+  }
+  .links a {
+    padding: 0;
+    margin: 0 0.5rem;
+  }
+  .links a:hover {
+    padding: 0;
+    background: transparent;
+  }
+  .social-icons {
+    display: flex;
+  }
+  .social-icons a {
+    margin: 0 0.5rem;
+    color: var(--clr-primary-5);
+    transition: var(--transition);
+  }
+  .social-icons a:hover {
+    color: var(--clr-primary-7);
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 900px) {
+    .back-text{
+        color: rgb(214, 214, 214);
+        font-family: 'Shadows Into Light', cursive;
+        position: relative;
+        left: 60px;
+        width: max-content;
+        z-index: 1;
+        top: 80px;
+        font-size: 2rem;
+        transform: rotateZ(-15deg);
+    }
+    .main-text{
+        font-family: 'Shadows Into Light', cursive;
+        z-index: 5;
+        position: relative;
+        left: 100px;
+        top: 80px;
+        font-size: 2rem;
+    }
+    .upper-main-text h2{
+        font-family: 'Shadows Into Light', cursive;
+      color: var(--clr-primary-5);
+      position: relative;
+      left:100px;
+      top: 70px;
+      font-size: 1.8rem;
+    }
+    .upper-main-text p{
+        font-family: 'Shadows Into Light', cursive;
+        color: #222;
+        width: 70%;
+        position: relative;
+        left: 100px;
+        top: 80px;
+        font-size: 1.3rem;
+    }
+    .hire-btn{
+        position: relative;
+        top: 80px;
+        left: 100px;
+    }
+    .upper-main-img img{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
+@media screen and (min-width: 441px) and (max-width: 800px){
+    .upper-main{
+        width:100%;
+        height: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+    .upper-main-text{
+        width: 100%;
+        height: 500px;
+        padding: 20px 80px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center
+    }
+    .upper-main-img{
+        width: 100%;
+        height: 500px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .projects{
+        width: 100%;
+        height: 1400px;
+        display: flex;
+        flex-direction: column;
+    }
+    .project-main{
+        width: 100%;
+        height: 1350px;
+        display: flex;
+        flex-direction: column;
+    }
+    .project-div{
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .skills{
+      width: 100%;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+    }
+    .skill-head{
+      width: 100%;
+      height: 50px;
+      text-align: center;
+    }
+    .skill-head h1{
+      font-family: 'Shadows Into Light', cursive;
+      text-decoration: 3px solid underline var(--clr-primary-5);
+    }
+    .skill-main{
+      width: 100%;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+    }
+    .skill1{
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .skill11{
+      width: 180px;
+      height:80px;
+      background: rgba( 234, 218, 218, 0.45 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 8.5px );
+      -webkit-backdrop-filter: blur( 8.5px );
+      cursor: pointer;
+      border-radius: 10px;
+      padding: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    .skill11 p{
+      position: relative; 
+      top: -45px;
+      font-size: 1.5rem;
+      width: max-content;
+      left: 80px;
+      font-family: 'Shadows Into Light', cursive;
+      text-decoration: 3px solid underline var(--clr-primary-5);
+    }
+    .socials{
+      width: 100%;
+      height: 800px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 100px;
+    }
+    .socials-img{
+      width: 100%;
+      height: 400px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+    .socials-img img{
+      height: 80%;
+      width: auto;
+    }
+    .socials-text{
+      width: 100%;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .socials-text h3{
+      font-family: 'Shadows Into Light', cursive;
+    }
+    .socials-text a{
+      width: max-content;
+      position: relative;
+      left: 40%;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 440px){
+  .upper-main{
+    width:100%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.upper-main-text{
+    width: 100%;
+    height: 500px;
+    padding: 20px 80px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.upper-main-img{
+    width: 100%;
+    height: 500px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.projects{
+    width: 100%;
+    height: 1400px;
+    display: flex;
+    margin-top:-30px ;
+    flex-direction: column;
+}
+.project-main{
+    width: 100%;
+    height: 1350px;
+    display: flex;
+    flex-direction: column;
+}
+.project-div{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .upper-main-img img{
+    position: relative;
+    top: 70px;
+  }
+  .skills{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-head{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+  }
+  .skill-head h1{
+    font-family: 'Shadows Into Light', cursive;
+    text-decoration: 3px solid underline var(--clr-primary-5);
+  }
+  .skill-main{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill1{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .skill11{
+    width: 180px;
+    height:80px;
+    background: rgba( 234, 218, 218, 0.45 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  .skill11 p{
+    position: relative; 
+    top: -45px;
+    font-size: 1.5rem;
+    width: max-content;
+    left: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    text-decoration: 3px solid underline var(--clr-primary-5);
+  }
+  .socials{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  .socials-img{
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .socials-img img{
+    height: 80%;
+    width: auto;
+  }
+  .socials-text{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .socials-text h3{
+    font-family: 'Shadows Into Light', cursive;
+  }
+  .socials-text a{
+    width: max-content;
+    position: relative;
+    left: 40%;
+  }
+}
